@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  db:
+    container_name: okr_space_database
+    build:
+      context: .
+      dockerfile: containers/okr_space_database/Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    user: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - okr_space_network
+    restart: always
+
+  backend:
+    container_name: okr_space_backend
+    build:
+      context: .
+      dockerfile: containers/okr_space_backend/Dockerfile
+    depends_on:
+      - db
+    hostname: okrspace.backend.localhost
+    working_dir: /usr/src/app
+    volumes:
+      - ./project/:/usr/src/app
+    env_file:
+      .env
+    command: python manage.py runserver okrspace.backend.localhost:8000
+    environment:
+      - PYTHONUNBUFFERED=True
+      - OAUTHLIB_INSECURE_TRANSPORT=False
+      - DEBUG=true
+    ports:
+      - "8000:8000"
+    networks:
+      - okr_space_network
+    restart: "no"
+
+networks:
+  okr_space_network:
+    external: true
