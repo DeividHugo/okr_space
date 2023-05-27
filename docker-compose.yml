@@ -16,20 +16,20 @@ services:
       - okr_space_network
     restart: always
 
-  backend:
-    container_name: okr_space_backend
+  web:
+    container_name: okr_space_web
     build:
       context: .
-      dockerfile: containers/okr_space_backend/Dockerfile
+      dockerfile: containers/okr_space_web/Dockerfile
     depends_on:
       - db
-    hostname: okrspace.backend.localhost
+    hostname: okrspace.localhost
     working_dir: /usr/src/app
     volumes:
       - ./project/:/usr/src/app
     env_file:
       .env
-    command: python manage.py runserver okrspace.backend.localhost:8000
+    command: python manage.py runserver okrspace.localhost:8000
     environment:
       - PYTHONUNBUFFERED=True
       - OAUTHLIB_INSECURE_TRANSPORT=False

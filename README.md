@@ -12,7 +12,8 @@ Follow the steps below to run the project:
 3. Start the Docker Compose containers:
 
    ```shell
-   docker-compose up
+   docker network create okr_space_network
+   docker-compose up --build
 
 ## Project Status
 
