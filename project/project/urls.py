@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('src.apps.okr_space_backend.urls')),
+    path('', include('src.apps.okr_space.urls')),
 ]

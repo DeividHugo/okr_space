@@ -1,4 +1,4 @@
-from src.apps.okr_space_backend.utils import set_current_user
+from src.apps.okr_space.utils import set_current_user
 from django.utils.deprecation import MiddlewareMixin
 class CurrentUserMiddleware(MiddlewareMixin):
     def process_request(self, request):

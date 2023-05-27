@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'src.apps.okr_space_backend',
+    'src.apps.okr_space',
     'safedelete',
     'rest_framework',
 ]
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'src.apps.okr_space_backend.middleware.CurrentUserMiddleware',
+    'src.apps.okr_space.middleware.CurrentUserMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
