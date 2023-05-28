@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from safedelete.models import SafeDeleteModel, SOFT_DELETE_CASCADE
-from src.apps.okr_space.utils import get_current_user
+from src.apps.accounts.utils import get_current_user
 
 class BaseModel(SafeDeleteModel):
     _safedelete_policy = SOFT_DELETE_CASCADE
