@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'src.apps.okr_space',
     'safedelete',
     'rest_framework',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
+    'two_factor.plugins.phonenumber',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'src.apps.okr_space.middleware.CurrentUserMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -125,7 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = f'{BASE_DIR}/src/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -135,3 +142,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'media')
+
+# Login
+
+LOGIN_URL = 'two_factor:login'
+
+LOGIN_REDIRECT_URL = 'two_factor:profile'
