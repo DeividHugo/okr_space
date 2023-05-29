@@ -1,4 +1,4 @@
-# OKR SPACE BACKEND
+# OKR SPACE 
 
 ## Dependencies
 - docker

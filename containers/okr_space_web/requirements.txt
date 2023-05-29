@@ -14,3 +14,4 @@ pytz==2023.3
 qrcode==7.4.2
 sqlparse==0.4.4
 typing_extensions==4.6.2
+django-compressor==4.3.1

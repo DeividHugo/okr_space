@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'src.apps.accounts',
-    'src.apps.okr_space',
+    'apps.accounts',
+    'apps.okr_space',
     'safedelete',
     'rest_framework',
+    'compressor',
     'django_otp',
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
@@ -58,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'src.apps.accounts.middleware.CurrentUserMiddleware',
+    'apps.accounts.middleware.CurrentUserMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
 ]
@@ -68,7 +69,10 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'apps/accounts/templates',
+            BASE_DIR / 'apps/okr_space/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = f'{BASE_DIR}/src/static/'
+STATIC_URL = f'{BASE_DIR}/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -142,10 +146,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'media')
+MEDIA_ROOT = os.path.join(STATIC_URL, 'media')
 
 # Login
 
 LOGIN_URL = 'two_factor:login'
 
 LOGIN_REDIRECT_URL = 'two_factor:profile'
+
+# Compress
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
