@@ -7,7 +7,7 @@ WORKDIR /app
 ADD containers/okr_space_web/requirements.txt .
 RUN pip install -r requirements.txt
 
-ADD ../../project .
+ADD project .
 
 # Node 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
