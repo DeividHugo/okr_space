@@ -152,7 +152,7 @@ MEDIA_ROOT = os.path.join(STATIC_URL, 'media')
 
 LOGIN_URL = 'two_factor:login'
 
-LOGIN_REDIRECT_URL = 'two_factor:profile'
+LOGIN_REDIRECT_URL = 'okr_space:dashboard'
 
 # Compress
 
@@ -161,3 +161,7 @@ COMPRESS_ROOT = BASE_DIR / 'static'
 COMPRESS_ENABLED = True
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
+# User 
+
+#AUTH_USER_MODEL = 'accounts.User'
