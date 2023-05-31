@@ -1,81 +1,22 @@
+{% load static %}
+{% load compress %}
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+    {% block extra_media %}{% endblock %}
 </head>
 <body>
-  <div class="alert alert-success"><p class="container">Provide a template named
-    <code>two_factor/_base.html</code> to style this page and remove this message.</p></div>
-
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 offset-md-3">
-        
-  <h1>Login</h1>
-
-  
-    <p>Enter your credentials.</p>
-  
-
-  <form action="" method="post">
-  {% csrf_token %}
-    <table class="mb-3">
-  <input type="hidden" name="login_view-current_step" value="auth" id="id_login_view-current_step">
-  <tr>
-    <th><label for="id_auth-username">Username:</label></th>
-    <td>
-      
-      <input type="text" name="auth-username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_auth-username">
-      
-      
-    </td>
-  </tr>
-
-  <tr>
-    <th><label for="id_auth-password">Password:</label></th>
-    <td>
-      
-      <input type="password" name="auth-password" autocomplete="current-password" required id="id_auth-password">
-      
-      
-        
-      
-    </td>
-  </tr>
-</table>
-
-
-    
-    <input type="submit" value="" hidden />
-
-    
-
-    
-
-
-
-  <button disabled name="" type="button" class="btn">Back</button>
-
-<button type="submit" class="btn btn-primary">Next</button>
-
-  </form>
-
-  
-    
-  
-
-      </div>
-    </div>
-  </div>
-
+    {% block content %}{% endblock %}
 </body>
 </html>

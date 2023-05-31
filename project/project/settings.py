@@ -152,7 +152,7 @@ MEDIA_ROOT = os.path.join(STATIC_URL, 'media')
 
 LOGIN_URL = 'two_factor:login'
 
-LOGIN_REDIRECT_URL = 'two_factor:profile'
+LOGIN_REDIRECT_URL = 'okr_space:dashboard'
 
 # Compress
 
