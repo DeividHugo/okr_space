@@ -162,4 +162,6 @@ COMPRESS_ENABLED = True
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
-AUTH_USER_MODEL = 'accounts.User'
+# User 
+
+#AUTH_USER_MODEL = 'accounts.User'
