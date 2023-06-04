@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% if cancel_url %}
+  <!-- <a href="{{ cancel_url }}"
+     class="float-right btn btn-link">{% trans "Cancel" %}</a> -->
+{% endif %}
+{% if wizard.steps.prev %}
+  <button style="margin-bottom: 10px;" name="wizard_goto_step" type="submit"
+          value="{{ wizard.steps.prev }}"
+          class="w-full bg-blue-600 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 btn btn-secondary">{% trans "Back" %}</button>
+{% else %}
+  <!-- <button disabled name="" type="button" class="btn">{% trans "Back" %}</button> -->
+{% endif %}
+<button type="submit" class="w-full bg-blue-600 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 btn btn-primary">{% trans "Next" %}</button>
