@@ -8,3 +8,7 @@ class Dashboard(LoginRequiredMixin, TemplateView):
 
 class Home(LoginRequiredMixin, TemplateView):
     template_name = "index.html"
+
+
+class Project(LoginRequiredMixin, TemplateView):
+    template_name = "project.html"

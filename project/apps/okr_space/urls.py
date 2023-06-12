@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Dashboard, Home
+from .views import Dashboard, Home, Project
 
 app_name = 'okr_space'
 
@@ -26,5 +26,13 @@ home = [
     )
 ]
 
+project = [
+    path(
+        'project',
+        Project.as_view(),
+        name='project'
+    )
+]
 
-urlpatterns = (api + dashboard + home)
+
+urlpatterns = (api + dashboard + home + project)
