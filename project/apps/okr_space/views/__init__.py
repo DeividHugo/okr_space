@@ -12,3 +12,6 @@ class Home(LoginRequiredMixin, TemplateView):
 
 class Project(LoginRequiredMixin, TemplateView):
     template_name = "project.html"
+
+class UserRank(LoginRequiredMixin, TemplateView):
+    template_name = "user_rank.html"
