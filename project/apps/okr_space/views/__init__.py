@@ -1,11 +1,9 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from models.task import TaskModel
-
+from ..models import TaskModel
 
 class Dashboard(LoginRequiredMixin, TemplateView):
     template_name = "dashboard.html"
-
 
 class Home(LoginRequiredMixin, TemplateView):
     template_name = "index.html"
