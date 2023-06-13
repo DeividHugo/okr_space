@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Dashboard, Home, Project, UserRank
+from .views import Dashboard, Home, Project, UserRank, Task
 
 app_name = 'okr_space'
 
@@ -42,5 +42,13 @@ user_rank = [
     )
 ]
 
+task = [
+    path(
+        'task',
+        Task.as_view(),
+        name='task'
+    )
+]
 
-urlpatterns = (api + dashboard + home + project + user_rank)
+
+urlpatterns = (api + dashboard + home + project + user_rank + task)
